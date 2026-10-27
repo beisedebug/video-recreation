@@ -55,6 +55,15 @@ def pillow_info():
         return {"status": "unusable", "error_kind": type(exc).__name__}
 
 
+def numpy_info():
+    try:
+        import numpy
+        numpy.asarray([0.0, 1.0]).mean()
+        return {"status": "pass", "version": numpy.__version__}
+    except Exception as exc:
+        return {"status": "unusable", "error_kind": type(exc).__name__}
+
+
 def workspace_info(workspace):
     path = Path(workspace).expanduser().resolve()
     if not path.is_dir():
@@ -74,6 +83,8 @@ def inspect_environment(workspace, host="other"):
     ffprobe = binary_info("ffprobe")
     encoders = encoder_info(ffmpeg)
     pillow = pillow_info()
+    numpy = numpy_info()
+    downloader = {"status": "found" if shutil.which("yt-dlp") else "missing", "path": shutil.which("yt-dlp")}
     folder = workspace_info(workspace)
     probe_ready = python_ok and ffmpeg["status"] == "pass" and folder["status"] == "pass"
     render_ready = probe_ready and encoders["libx264"]
@@ -82,6 +93,8 @@ def inspect_environment(workspace, host="other"):
         warnings.append("ffprobe unavailable: FFmpeg metadata fallback is approximate.")
     if pillow["status"] != "pass":
         warnings.append("Pillow unavailable: contact-sheet sampling is unavailable.")
+    if numpy["status"] != "pass":
+        warnings.append("NumPy unavailable: optional dance beat/motion diagnostics are unavailable.")
     if not encoders["libx264"]:
         warnings.append("libx264 unavailable: the bundled renderer cannot encode video.")
     if not encoders["aac"]:
@@ -92,7 +105,7 @@ def inspect_environment(workspace, host="other"):
         "checks": {
             "python": {"status": "pass" if python_ok else "unsupported", "version": platform.python_version()},
             "ffmpeg": ffmpeg, "ffprobe": ffprobe, "encoders": encoders,
-            "pillow": pillow, "workspace": folder,
+            "pillow": pillow, "numpy": numpy, "yt_dlp": downloader, "workspace": folder,
         },
         "local_media_status": "pass" if probe_ready else "fail",
         "capabilities": {
@@ -100,6 +113,8 @@ def inspect_environment(workspace, host="other"):
             "sample_contact_sheets": probe_ready and pillow["status"] == "pass",
             "render_silent": render_ready,
             "render_with_audio": render_ready and encoders["aac"],
+            "dance_diagnostics": probe_ready and ffprobe["status"] == "pass" and numpy["status"] == "pass",
+            "download_dependencies": probe_ready and ffprobe["status"] == "pass" and downloader["status"] == "found",
         },
         "host_tools": {name: "not_checked" for name in (
             "image_generation", "motion_generation", "network_access", "artifact_delivery")},

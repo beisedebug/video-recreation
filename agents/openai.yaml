@@ -1,4 +1,4 @@
 interface:
-  display_name: "视频复刻与转场重做"
-  short_description: "从参考视频拆镜、反推提示词、生成复刻，精准重做转场或局部重剪"
-  default_prompt: "使用 $video-recreation 分析并按要求复刻、重做转场或重剪；需要生成时先分别询问生图和动作模型及各自 API 地址／调用渠道，再交付成片和完整提示词。"
+  display_name: "视频下载、舞蹈提取与复刻"
+  short_description: "获取链接或本地参考，提取舞蹈动作与节拍，通过镜头选择和对话加入创意后复刻"
+  default_prompt: "使用 $video-recreation 获取并分析我的参考视频；舞蹈按动作与节拍拆解，运镜沿用原片或按我的想法调整，复用已确认配置并按要求交付提示词或成片。"
