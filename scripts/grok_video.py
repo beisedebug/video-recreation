@@ -50,7 +50,9 @@ def build(spec_file):
     if not prompt:
         raise JobError('Empty prompt')
     payload = {k: spec[k] for k in ('model', 'duration', 'resolution', 'aspect_ratio')}
-    payload['duration'] = duration
+    # Some compatible providers require whole seconds as a JSON integer.
+    # Keep fractional seconds unchanged rather than silently rounding them.
+    payload['duration'] = int(duration) if duration.is_integer() else duration
     if any(not isinstance(payload[k], str) or not payload[k] for k in ('model', 'resolution', 'aspect_ratio')):
         raise JobError('model, resolution and aspect_ratio must be nonempty strings')
     payload['prompt'] = prompt
