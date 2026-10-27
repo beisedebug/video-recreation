@@ -1,0 +1,558 @@
+{
+  "schema_version": 1,
+  "description": "原创通用镜头卡；用于表达拍摄意图，不表示任一平台保证支持或稳定复现。",
+  "type_definitions": {
+    "camera_motion": "相机位置或朝向随时间变化；包括明确说明的组合运动。",
+    "lens_motion": "变焦等镜头参数变化，相机位置可不变。",
+    "static_view": "固定机位或视角；不是运镜。",
+    "edit_effect": "镜头之间的剪辑关系；不是运镜。"
+  },
+  "usage_notes": [
+    "支持按代码或 id 直接选择；可由主智能体理解对话后选择或组合。",
+    "关键词检索只提供字面匹配候选，不可靠理解否定、时间范围与动作主体。",
+    "英文骨架中的占位符须由主智能体按已知信息填充，缺失时采用可解释的低风险默认值或询问影响结果的必要信息。",
+    "不把卡片选择等同于付费生成或发布授权；接入平台后另按当前任务授权执行。"
+  ],
+  "presets": [
+    {
+      "code": "C01",
+      "id": "fixed",
+      "type": "static_view",
+      "name_zh": "固定机位",
+      "human_effect": "相机安静地停住，让人物动作或画面细节成为重点。",
+      "keywords": {
+        "zh": [
+          "固定机位",
+          "固定镜头",
+          "镜头别动",
+          "相机不动",
+          "锁定机位"
+        ],
+        "en": [
+          "locked off",
+          "fixed camera",
+          "tripod",
+          "static shot"
+        ]
+      },
+      "camera_motion": "相机位置、朝向与焦距保持不变；主体仍按参考视频活动。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "固定机位不等于主体静止，也不等于把视频变成照片。",
+        "用户说“稳一点”可能只要求防抖，未必要求取消跟拍。"
+      ],
+      "prompt_template_en": "Locked-off camera at {camera_height}, {framing}; hold the same position, angle, and focal length for {duration_s} seconds. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "camera_height": "机位高度",
+        "framing": "起始景别和构图",
+        "duration_s": "持续秒数"
+      }
+    },
+    {
+      "code": "C02",
+      "id": "push_in",
+      "type": "camera_motion",
+      "name_zh": "向前推进",
+      "human_effect": "镜头逐渐靠近，突出人物情绪或重要细节。",
+      "keywords": {
+        "zh": [
+          "推进",
+          "推近",
+          "靠近",
+          "慢慢靠近",
+          "向前移动"
+        ],
+        "en": [
+          "push in",
+          "dolly in",
+          "move closer",
+          "forward dolly"
+        ]
+      },
+      "camera_motion": "相机沿路径向主体靠近，焦距保持一致，产生真实透视与视差变化。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "“放大”可能指推进，也可能指变焦；需要根据用户是否希望背景透视改变区分。",
+        "不默认让主体迎着镜头走来。"
+      ],
+      "prompt_template_en": "Dolly the camera toward {target} over {duration_s} seconds, from {start_framing} to {end_framing}, at {speed_profile}; keep the focal length constant and preserve natural parallax. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "target": "靠近哪个主体或细节",
+        "duration_s": "持续秒数",
+        "start_framing": "起始景别",
+        "end_framing": "结束景别",
+        "speed_profile": "匀速、缓入或缓出"
+      }
+    },
+    {
+      "code": "C03",
+      "id": "pull_out",
+      "type": "camera_motion",
+      "name_zh": "向后拉远",
+      "human_effect": "镜头离开主体，逐步交代环境或形成疏离感。",
+      "keywords": {
+        "zh": [
+          "拉远",
+          "后退",
+          "向后移动",
+          "揭示环境"
+        ],
+        "en": [
+          "pull out",
+          "dolly out",
+          "pull back",
+          "reveal surroundings"
+        ]
+      },
+      "camera_motion": "相机向后移动，与主体距离增大，焦距保持一致。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "拉远不是缩放画面；背景范围扩大应伴随合理的视差。",
+        "“离开”可能是主体离场，不能据此自动改主体动作。"
+      ],
+      "prompt_template_en": "Dolly the camera backward from {target} over {duration_s} seconds, revealing {environment_reveal}; maintain a constant focal length and {speed_profile}. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "target": "起始关注主体",
+        "duration_s": "持续秒数",
+        "environment_reveal": "希望露出的环境",
+        "speed_profile": "后退节奏"
+      }
+    },
+    {
+      "code": "C04",
+      "id": "pan",
+      "type": "camera_motion",
+      "name_zh": "水平摇摄",
+      "human_effect": "站在一个位置，镜头向左或向右转着看。",
+      "keywords": {
+        "zh": [
+          "水平摇摄",
+          "横摇",
+          "左摇",
+          "右摇",
+          "左右转镜头"
+        ],
+        "en": [
+          "pan",
+          "pan left",
+          "pan right",
+          "horizontal pan"
+        ]
+      },
+      "camera_motion": "相机位置固定，仅绕竖直轴改变朝向。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "摇摄与横向平移不同：前者转头，后者搬动相机位置。",
+        "“向右”需区分画面中的方向、人物行进方向与相机运动方向。"
+      ],
+      "prompt_template_en": "From a stationary camera position, pan {direction} through {angle_deg} degrees over {duration_s} seconds, moving the view from {start_target} to {end_target}; no lateral camera translation. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "direction": "left 或 right，以画面为准",
+        "angle_deg": "大致转动角度",
+        "duration_s": "持续秒数",
+        "start_target": "起始画面内容",
+        "end_target": "结束画面内容"
+      }
+    },
+    {
+      "code": "C05",
+      "id": "tilt",
+      "type": "camera_motion",
+      "name_zh": "上下摇摄",
+      "human_effect": "从脚下抬头看向高处，或从高处低头看下去。",
+      "keywords": {
+        "zh": [
+          "上下摇摄",
+          "俯仰摇摄",
+          "仰摇",
+          "俯摇",
+          "镜头抬头",
+          "镜头低头"
+        ],
+        "en": [
+          "tilt",
+          "tilt up",
+          "tilt down",
+          "vertical pan"
+        ]
+      },
+      "camera_motion": "相机位置固定，仅绕水平轴向上或向下改变朝向。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "仰拍是视角，向上摇才是运动；不能把“低机位仰拍”自动改成摇摄。",
+        "上下摇不等于相机垂直升降。"
+      ],
+      "prompt_template_en": "Keep the camera position fixed and tilt {direction} from {start_target} to {end_target} over {duration_s} seconds, with {speed_profile}. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "direction": "up 或 down",
+        "start_target": "起始关注点",
+        "end_target": "最终关注点",
+        "duration_s": "持续秒数",
+        "speed_profile": "转动节奏"
+      }
+    },
+    {
+      "code": "C06",
+      "id": "truck",
+      "type": "camera_motion",
+      "name_zh": "横向平移",
+      "human_effect": "镜头从旁边滑过去，让前后景产生层次变化。",
+      "keywords": {
+        "zh": [
+          "横向平移",
+          "横移",
+          "侧移",
+          "侧向滑动",
+          "向左平移",
+          "向右平移"
+        ],
+        "en": [
+          "truck",
+          "truck left",
+          "truck right",
+          "lateral tracking",
+          "sideways move"
+        ]
+      },
+      "camera_motion": "相机沿横向路径平移，可保持朝向或略微转向主体；前后景产生视差。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "“扫过去”可能指横摇或横移，需要结合是否希望前景掠过来理解。",
+        "与主体并排行走的横移也可作为跟拍路径，避免重复叠加两次运动。"
+      ],
+      "prompt_template_en": "Truck the camera {direction} along {path} for {duration_s} seconds, maintaining {framing_behavior} and natural foreground-background parallax. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "direction": "left 或 right，以画面为准",
+        "path": "大致路径或距离",
+        "duration_s": "持续秒数",
+        "framing_behavior": "朝向不变或持续朝向指定主体"
+      }
+    },
+    {
+      "code": "C07",
+      "id": "follow",
+      "type": "camera_motion",
+      "name_zh": "跟随拍摄",
+      "human_effect": "镜头陪着正在移动的人或物一起前进。",
+      "keywords": {
+        "zh": [
+          "跟随",
+          "跟拍",
+          "尾随",
+          "陪着走",
+          "保持距离"
+        ],
+        "en": [
+          "follow",
+          "follow shot",
+          "tracking shot",
+          "chase camera"
+        ]
+      },
+      "camera_motion": "相机随参考主体的既有轨迹移动，尽量保持指定相对位置和距离。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "跟拍不默认让原本静止的主体开始移动；静止主体需要另选运镜或用户明确补充动作。",
+        "需说明从后方、前方或侧面跟随，避免相机和主体移动方向混淆。"
+      ],
+      "prompt_template_en": "Follow {target} from {relative_position} at {distance} for {duration_s} seconds, preserving the subject’s reference trajectory and speed; maintain {framing} with {stabilization}. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "target": "跟随对象",
+        "relative_position": "前方、后方或侧面",
+        "distance": "相对距离",
+        "duration_s": "持续秒数",
+        "framing": "主体在画面中的位置",
+        "stabilization": "稳定器感或轻微手持感"
+      }
+    },
+    {
+      "code": "C08",
+      "id": "orbit",
+      "type": "camera_motion",
+      "name_zh": "环绕拍摄",
+      "human_effect": "镜头绕到主体另一侧，展示体积、空间或人物关系。",
+      "keywords": {
+        "zh": [
+          "环绕",
+          "绕一圈",
+          "绕半圈",
+          "绕到侧面",
+          "绕着拍",
+          "绕人物",
+          "绕到背后"
+        ],
+        "en": [
+          "orbit",
+          "arc shot",
+          "circle around",
+          "camera circles"
+        ]
+      },
+      "camera_motion": "相机以主体或指定点为中心沿弧线移动，并持续朝向目标。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "镜头环绕不等于主体自转；保留主体原动作。",
+        "“绕一圈”可能只是口语描述，需确认是小角度弧线还是完整 360 度。",
+        "顺时针需约定从上方看或按起止机位描述。"
+      ],
+      "prompt_template_en": "Orbit the camera around {target} along a {arc_deg}-degree arc from {start_position} toward {end_position} over {duration_s} seconds; maintain {radius} distance and {height} camera height. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "target": "环绕中心",
+        "arc_deg": "弧线角度",
+        "start_position": "起始方位",
+        "end_position": "结束方位",
+        "duration_s": "持续秒数",
+        "radius": "环绕距离",
+        "height": "相机高度"
+      }
+    },
+    {
+      "code": "C09",
+      "id": "crane",
+      "type": "camera_motion",
+      "name_zh": "升降镜头",
+      "human_effect": "镜头向上或向下移动，揭示空间层次和整体规模。",
+      "keywords": {
+        "zh": [
+          "升降镜头",
+          "升起",
+          "下降",
+          "升高机位",
+          "吊臂"
+        ],
+        "en": [
+          "crane",
+          "crane up",
+          "crane down",
+          "pedestal",
+          "vertical camera move"
+        ]
+      },
+      "camera_motion": "相机实际位置垂直或沿明确吊臂弧线升降；朝向可保持或朝向目标。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "机位升高不同于镜头仰摇。",
+        "“航拍感”不必然代表无人机绕飞；先确定垂直升降还是多方向飞行。"
+      ],
+      "prompt_template_en": "Move the camera {direction} from {start_height} to {end_height} over {duration_s} seconds along {path}, keeping {target} framed with {orientation_behavior}. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "direction": "up 或 down",
+        "start_height": "起始机位高度",
+        "end_height": "结束机位高度",
+        "duration_s": "持续秒数",
+        "path": "垂直路径或明确的吊臂弧线",
+        "target": "画面关注点",
+        "orientation_behavior": "朝向不变或缓慢调整朝向"
+      }
+    },
+    {
+      "code": "C10",
+      "id": "handheld",
+      "type": "camera_motion",
+      "name_zh": "轻微手持",
+      "human_effect": "保留人拿相机的细小呼吸和晃动，让画面更现场化。",
+      "keywords": {
+        "zh": [
+          "手持",
+          "轻微晃动",
+          "呼吸感",
+          "纪实感",
+          "拿着拍"
+        ],
+        "en": [
+          "handheld",
+          "handheld drift",
+          "documentary camera",
+          "subtle shake"
+        ]
+      },
+      "camera_motion": "在基准机位或已选路径上叠加有限的非周期位置与角度微动。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "手持是稳定性特征，可与跟拍等路径组合；不自行添加另一条大幅运动。",
+        "“纪实感”也可能只涉及光线、表演或画质，需结合上下文判断。",
+        "不默认加入失焦、强抖动、颗粒或 DV 滤镜。"
+      ],
+      "prompt_template_en": "Use {intensity} natural handheld camera drift over the established {base_path}, with small non-repeating positional and angular movements; keep {target} readable for {duration_s} seconds. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "intensity": "轻微、中等等明确幅度",
+        "base_path": "固定位置或已选运镜路径",
+        "target": "需保持清晰可读的主体",
+        "duration_s": "持续秒数"
+      }
+    },
+    {
+      "code": "C11",
+      "id": "zoom",
+      "type": "lens_motion",
+      "name_zh": "镜头变焦",
+      "human_effect": "机位不动，画面逐渐放大或缩小。",
+      "keywords": {
+        "zh": [
+          "变焦",
+          "光学拉近",
+          "光学拉远",
+          "画面放大",
+          "画面缩小"
+        ],
+        "en": [
+          "zoom",
+          "zoom in",
+          "zoom out",
+          "optical zoom"
+        ]
+      },
+      "camera_motion": "相机位置固定，改变焦距或由平台模拟焦距变化；不产生推进式视差。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "“拉近一点”可能想要物理推进，也可能想要变焦。",
+        "变焦、数字裁切与推轨的透视效果不同，平台是否真实模拟光学变化需实测。"
+      ],
+      "prompt_template_en": "Keep the camera position fixed and perform a {direction} zoom from {start_framing} to {end_framing} over {duration_s} seconds, centered on {target}; no camera translation. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "direction": "in 或 out",
+        "start_framing": "起始景别，可补充焦距意图",
+        "end_framing": "结束景别，可补充焦距意图",
+        "duration_s": "持续秒数",
+        "target": "变焦中心"
+      }
+    },
+    {
+      "code": "C12",
+      "id": "dolly_zoom",
+      "type": "camera_motion",
+      "name_zh": "推拉变焦／希区柯克效果",
+      "human_effect": "人物大小大致不变，背景空间却明显拉伸或压缩。",
+      "keywords": {
+        "zh": [
+          "推拉变焦",
+          "希区柯克",
+          "眩晕镜头",
+          "背景拉伸"
+        ],
+        "en": [
+          "dolly zoom",
+          "vertigo effect",
+          "zolly"
+        ]
+      },
+      "camera_motion": "相机物理推进并同步拉远焦距，或物理后退并同步拉近焦距，使主体画面大小近似稳定。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "这是相机移动与反向变焦的耦合效果；普通推进不等同于推拉变焦。",
+        "需确认主体锁定和背景变化优先级，生成结果未必准确模拟几何关系。"
+      ],
+      "prompt_template_en": "Perform a dolly zoom on {target}: {camera_translation} while inversely adjusting focal length to keep the subject approximately the same size in frame; make the background perspective visibly shift over {duration_s} seconds. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "target": "锁定主体",
+        "camera_translation": "dolly inward and zoom out，或 dolly backward and zoom in",
+        "duration_s": "持续秒数",
+        "strength": "背景空间变化强度"
+      }
+    },
+    {
+      "code": "C13",
+      "id": "whip_pan",
+      "type": "camera_motion",
+      "name_zh": "快速甩镜",
+      "human_effect": "镜头突然快速转向另一侧，形成短促的速度感。",
+      "keywords": {
+        "zh": [
+          "甩镜",
+          "快速甩动",
+          "极速横摇",
+          "快速转向"
+        ],
+        "en": [
+          "whip pan",
+          "swish pan",
+          "fast pan"
+        ]
+      },
+      "camera_motion": "相机快速水平转动，在同一镜头内产生自然方向性运动模糊。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "甩镜本身是相机运动；“甩镜转场”还包含切换镜头的剪辑操作，需要另行指定。",
+        "不默认加入切镜、新场景或主体瞬移。"
+      ],
+      "prompt_template_en": "Within a single continuous shot, whip-pan {direction} from {start_target} to {end_target} in {move_duration_s} seconds, with directional motion blur, then settle for {settle_duration_s} seconds; do not introduce a cut. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "direction": "left 或 right",
+        "start_target": "起始内容",
+        "end_target": "甩到的内容",
+        "move_duration_s": "甩动持续秒数",
+        "settle_duration_s": "停稳持续秒数"
+      }
+    },
+    {
+      "code": "C14",
+      "id": "overhead",
+      "type": "static_view",
+      "name_zh": "顶视／俯视机位",
+      "human_effect": "从上方看清桌面、路线或对象之间的摆放关系。",
+      "keywords": {
+        "zh": [
+          "顶视",
+          "顶拍",
+          "俯视机位",
+          "鸟瞰视角",
+          "上帝视角"
+        ],
+        "en": [
+          "overhead",
+          "top down",
+          "bird’s eye view",
+          "birds eye view"
+        ]
+      },
+      "camera_motion": "仅定义机位高度与向下视角；默认位置和朝向固定，无额外运动。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "顶视是视角，不是升降、俯摇或无人机运动。",
+        "如用户要求“从人脸升到顶视”，需要组合独立的机位运动与结束视角。"
+      ],
+      "prompt_template_en": "Use a stationary {angle} overhead view at {height}, framing {target} and {layout}; maintain the reference action without adding camera movement. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "angle": "垂直顶视或明确俯视角",
+        "height": "相对主体的高度",
+        "target": "关注对象",
+        "layout": "可见范围与构图"
+      }
+    },
+    {
+      "code": "C15",
+      "id": "match_cut",
+      "type": "edit_effect",
+      "name_zh": "匹配剪辑",
+      "human_effect": "利用两个画面的形状、位置或动作相似性完成衔接。",
+      "keywords": {
+        "zh": [
+          "匹配剪辑",
+          "匹配转场",
+          "形状匹配",
+          "动作匹配"
+        ],
+        "en": [
+          "match cut",
+          "graphic match",
+          "action match",
+          "matched transition"
+        ]
+      },
+      "camera_motion": "无隐含相机运动；在两个已定义镜头之间设置剪辑关系。",
+      "subject_motion_default": "保留参考视频中的主体动作、方向、速度与时间顺序；只在用户明确要求时改变。",
+      "ambiguity_notes": [
+        "匹配剪辑属于剪辑，不是运镜；不得用它自动替换用户选择的相机路径。",
+        "需有前后两个镜头以及匹配对象；不默认生成新情节。",
+        "只调整剪辑点，不默认重写主体动作以强行匹配。"
+      ],
+      "prompt_template_en": "Create a match cut between the specified outgoing shot and incoming shot, aligning {match_element} at {cut_time}; preserve both shots’ established camera paths and subject actions. Preserve the reference subject action, identity, scene, lighting, and event order unless explicitly overridden.",
+      "optional_parameters": {
+        "match_element": "形状、画面位置、运动方向或动作阶段",
+        "cut_time": "剪辑时间点",
+        "outgoing_shot": "已定义的前一镜头",
+        "incoming_shot": "已定义的后一镜头"
+      }
+    }
+  ]
+}

@@ -26,7 +26,34 @@ python3 "$SKILL_DIR/scripts/check_environment.py" --host muse --workspace . --re
 | `model` | 用户选择并核实的模型标识；渠道不开放选择时为 `null`，另用 `model_managed_by_channel: true` 标明 |
 | `channel` | 用户选择的内置工具、API 提供商／配置名称或网页渠道 |
 | `base_url` | 已确认的 API 基础地址；非 API 渠道为 `null`，已有配置可在用户选择该提供商后解析 |
-| `confirmed_by` | 本次用户明确指定、回答选择问题或明确要求沿用的依据；不能用历史调用成功代替 |
+| `confirmed_by` | 本次明确指定、同任务已确认、用户明确长期默认、明确沿用或授权助手选择的依据；不能用历史调用成功代替 |
+
+另记录 `host`、`channel`、实际 `model` 和 `capability_check`，避免把 Flow／Muse 宿主名当作模型版本。能力检查至少覆盖所需的输入模式和规格；只有工具／官方文档确认才写 supported，未知写 `not_checked`。
+
+## 运镜与创意记录
+
+按 [运镜选择与对话](camera-direction.md) 保存 `work/camera-plan.json`：创意模式、选项／对话输入方式、用户原话、参考观察、逐镜源与目标帧区间、相机与主体运动、保留项、工作假设和未解决问题。它不改变下方媒体脚本的项目结构，也不会自动变成提供商 API 参数。生成时保存由计划编译出的真实完整提示词。
+
+## 来源与舞蹈记录
+
+`download_reference.py acquire` 自动保存本次获取的私有 `manifest.json`；以其已验证的 `files[].path` 作为媒体脚本输入。完整 URL 留在用户任务上下文，清单仅存来源类型、host 与输入摘要。不要把提取器完整元数据或临时链接作为交付附件。
+
+舞蹈任务可保存 `work/dance-analysis.json`，字段按实际需要使用，未知保持 null／not_checked：
+
+| 字段 | 含义 |
+|---|---|
+| `source_manifest` / `source_sha256` | 来源清单与视频摘要 |
+| `timebase` | 实际视频帧率、VFR 标记、源帧号与 PTS 映射；秒和帧不互相凭空换算 |
+| `beat_analysis` | 音轨状态、算法报告路径、候选 BPM／网格、人工核验状态；小节／downbeat 不从首峰自动编号 |
+| `events[]` | `id`、`source_pts`／帧区间、可见性、证据帧、躯干／脚步／重心、左右手、表情、体态、动作质感 |
+| `beat_alignment[]` | 动作事件 ID、候选拍点、时间偏差、误差范围、核验状态 |
+| `camera_plan` | 引用现有运镜计划，不重复造一套相机控制参数 |
+| `observations` / `interpretations` | 可见事实与情绪、力度等解释分开 |
+| `changes` / `preserve` | 用户授权修改和需要保留的内容 |
+| `dimension_scopes` | 按身份、动作、相机、音频分别记录可改与保留区间及验收方法；全片换身份不取消原运镜／动作保留要求 |
+| `validation` | 技术、身份、动作、运镜、节拍、音频各自的 pass/fail/not_checked 及依据 |
+
+这些是工作记录，不是提供商 API 字段。模型提示词仅编译所需信息；不要把未知字段填满来冒充精确测量。
 
 不要记录 key、Authorization 或带凭据的 URL。精确私有端点仅留在本地工作记录；交付摘要保留模型和渠道名称。配置改变时更新记录并保留此前任务回执，不能让旧回执看起来使用了新模型。
 

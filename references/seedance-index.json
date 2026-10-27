@@ -1,0 +1,676 @@
+{
+  "schema_version": 1,
+  "source": {
+    "repository": "https://github.com/FizzEat/seedance-prompts-zh",
+    "commit": "86a32b17e99191fff56689c9e29e4b73343231f1",
+    "file": "第一批.json",
+    "source_url": "https://github.com/FizzEat/seedance-prompts-zh/blob/86a32b17e99191fff56689c9e29e4b73343231f1/%E7%AC%AC%E4%B8%80%E6%89%B9.json",
+    "attribution": "FizzEat/seedance-prompts-zh 的中文标题与分类整理，整理者：王大锤（源 README 署名）；上游整理自 Nuos/awesome-seedance，数据来自 goodcase.ai；各条原作者与原帖链接保留。",
+    "upstream_repository": "https://github.com/Nuos/awesome-seedance",
+    "assessment_source": "https://goodcase.ai",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "https://github.com/FizzEat/seedance-prompts-zh/blob/86a32b17e99191fff56689c9e29e4b73343231f1/LICENSE",
+    "changes": "仅提取 category、title_zh、author、url、retest、stability，未修改字段值，未复制完整提示词。"
+  },
+  "assessment_notice": "retest 与 stability 是源仓库转引的 goodcase.ai 第三方复测结论和分数，不是本机测试，不代表本技能验证结果，也不是跨平台成功率。空值表示源数据未提供，不视为零分或失败。",
+  "entry_count": 82,
+  "entries": [
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "首尔夏夜 Vlog",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2092971211169100048",
+      "retest": "✅ reproduced",
+      "stability": 76
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "Mini DV 咖啡 ASMR Vlog",
+      "author": "@Strength04_X",
+      "url": "https://x.com/Strength04_X/status/2083094742682787939",
+      "retest": "✅ reproduced",
+      "stability": 77
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "雨天早晨咖啡和上学路",
+      "author": "@nawalsehar",
+      "url": "https://x.com/nawalsehar/status/2103337966416621703",
+      "retest": "✅ reproduced",
+      "stability": 85
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "吊床午后和洗摩托车",
+      "author": "@doctorwasif",
+      "url": "https://x.com/doctorwasif/status/2099836703729172540",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "老首尔买面包和棉花糖的一天",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2104057858765791389",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "首尔周五早晨散步",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2103329257149898940",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "原生 UGC 竖屏手机跟拍",
+      "author": "@mightyking",
+      "url": "https://x.com/mightyking/status/2089299068514148655",
+      "retest": "⚠️ degraded",
+      "stability": 71
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "2000 年代初的韩国生日派对",
+      "author": "@saniaspeaks_",
+      "url": "https://x.com/saniaspeaks_/status/2105146792681832481",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "印尼女孩的日常写实短片",
+      "author": "@RishuaVR",
+      "url": "https://x.com/RishuaVR/status/2089204108175741157",
+      "retest": "✅ reproduced",
+      "stability": 78
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "韩国女孩在美国见男友 POV",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2094997895187673489",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "狐狸自拍溪边散步 Vlog",
+      "author": "@MrDasOnX",
+      "url": "https://x.com/MrDasOnX/status/2089969922617266257",
+      "retest": "⚠️ degraded",
+      "stability": 75
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "2000 年代首尔情侣午后兜风",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2104776214066188611",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "练腿后摇摇晃晃的偶像健身日记",
+      "author": "@QAiStudio",
+      "url": "https://x.com/QAiStudio/status/2102992059938587000",
+      "retest": "✅ reproduced",
+      "stability": 79
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "K-pop 偶像核心训练",
+      "author": "@doctorwasif",
+      "url": "https://x.com/doctorwasif/status/2103476205760774263",
+      "retest": "✅ reproduced",
+      "stability": 81
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "猫咪自拍日常 Vlog",
+      "author": "@ZaraIrahh",
+      "url": "https://x.com/ZaraIrahh/status/2091385137133219971",
+      "retest": "⚠️ degraded",
+      "stability": 70
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "从公寓到海滩的手持旅行 Vlog",
+      "author": "@BubbleBrain",
+      "url": "https://x.com/BubbleBrain/status/2083659648108990925",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "韩国女人在社区健身房训练",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2104408252670939438",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "韩国女人在传统农场的夏日",
+      "author": "@saniaspeaks_",
+      "url": "https://x.com/saniaspeaks_/status/2098742251472261330",
+      "retest": "✅ reproduced",
+      "stability": 77
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "巴厘岛 30 秒热带旅行 Vlog 混剪",
+      "author": "@eshal__ai",
+      "url": "https://x.com/eshal__ai/status/2096840505355370629",
+      "retest": "❌ failed",
+      "stability": null
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "让日常变特别的写实感",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2096109540924141746",
+      "retest": "⚠️ degraded",
+      "stability": 69
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "夏天骑车穿过韩国小巷",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2091175465037746522",
+      "retest": "✅ reproduced",
+      "stability": 85
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "让 AI 显得真实的小瞬间",
+      "author": "@SimplyAnnisa",
+      "url": "https://x.com/SimplyAnnisa/status/2096931238460178592",
+      "retest": "✅ reproduced",
+      "stability": 86
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "60 秒健身日 Vlog",
+      "author": "@ZaraIrahh",
+      "url": "https://x.com/ZaraIrahh/status/2089569072526823464",
+      "retest": "⚠️ degraded",
+      "stability": 70
+    },
+    {
+      "category": "手持 Vlog / DV 家庭录像",
+      "title_zh": "19 世纪托斯卡纳乡村女孩日常",
+      "author": "@Goodmanprotocol",
+      "url": "https://x.com/Goodmanprotocol/status/2107530733212590250",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "首尔地铁复仇喜剧",
+      "author": "@AIwithSynthia",
+      "url": "https://x.com/AIwithSynthia/status/2108760866422415701",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "研究所寄生虫感染爆发",
+      "author": "@auqibhabib",
+      "url": "https://x.com/auqibhabib/status/2099725768310009982",
+      "retest": "⚠️ degraded",
+      "stability": 74
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "商场丧尸爆发中的保安和幸存者",
+      "author": "@auqibhabib",
+      "url": "https://x.com/auqibhabib/status/2104107269206237325",
+      "retest": "⚠️ degraded",
+      "stability": 72
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "30 秒情感实拍发现戏",
+      "author": "@AIwithSynthia",
+      "url": "https://x.com/AIwithSynthia/status/2096439253970395531",
+      "retest": "✅ reproduced",
+      "stability": 78
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "金发学生在走廊爆发超能力",
+      "author": "@AiwithElisia",
+      "url": "https://x.com/AiwithElisia/status/2092119695201837059",
+      "retest": "✅ reproduced",
+      "stability": 82
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "红围巾特工黑暗教室对决",
+      "author": "@Noor_ul_ain43",
+      "url": "https://x.com/Noor_ul_ain43/status/2104793144743108833",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "日本高速大巴感染袭击",
+      "author": "@auqibhabib",
+      "url": "https://x.com/auqibhabib/status/2102265619416768799",
+      "retest": "✅ reproduced",
+      "stability": 76
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "女人从碎裂地铁窗拉出大笑男人",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2097168171367338428",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "绿衣女召唤火焰树守护者",
+      "author": "@itsSaira_1",
+      "url": "https://x.com/itsSaira_1/status/2107685928647160275",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "大学实验室感染变丧尸",
+      "author": "@AIwithSynthia",
+      "url": "https://x.com/AIwithSynthia/status/2106955772395659431",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "未来高速摩托与超跑追逐",
+      "author": "@itsSaira_1",
+      "url": "https://x.com/itsSaira_1/status/2104064261005709551",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "下午五点逃离办公室",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2099440985872933199",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "修女化身天使斩杀恶魔",
+      "author": "@itsSaira_1",
+      "url": "https://x.com/itsSaira_1/status/2108765927194198397",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "黑袍剑客横扫暗影兽群",
+      "author": "@itsSaira_1",
+      "url": "https://x.com/itsSaira_1/status/2099006619988459985",
+      "retest": "✅ reproduced",
+      "stability": 83
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "女帝汉库克水上障碍赛",
+      "author": "@Chengzilhy",
+      "url": "https://x.com/Chengzilhy/status/2087458506123465088",
+      "retest": "⚠️ degraded",
+      "stability": 66
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "庭院女战士被打断抽烟",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2105196278217150537",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "海滩救援后的俏皮一溅",
+      "author": "@Harry_thingss",
+      "url": "https://x.com/Harry_thingss/status/2104579594695409840",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "狂骨：唐松心中对决",
+      "author": "@itxabdullaa",
+      "url": "https://x.com/itxabdullaa/status/2102609881677107243",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "地铁门关上后的搞笑报复",
+      "author": "@AIwithSynthia",
+      "url": "https://x.com/AIwithSynthia/status/2098988104418050349",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "巫师十秒逃跑计划：变成鸭子",
+      "author": "@AIwithNatalia",
+      "url": "https://x.com/AIwithNatalia/status/2089170554725265625",
+      "retest": "⚠️ degraded",
+      "stability": 73
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "枪口下的金色回忆",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2103857991917433061",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "粉发学生后空翻接住餐盘",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2100836177821483349",
+      "retest": "✅ reproduced",
+      "stability": 79
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "洗澡洗到一半裹浴巾冲去拿快递",
+      "author": "@AIwithZeeshi",
+      "url": "https://x.com/AIwithZeeshi/status/2107317166995546481",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "黄昏邻居反击感染者",
+      "author": "@auqibhabib",
+      "url": "https://x.com/auqibhabib/status/2107346452494381298",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "丛林神庙御水伏击",
+      "author": "@itxsarmadd",
+      "url": "https://x.com/itxsarmadd/status/2103694941260222603",
+      "retest": "⚠️ degraded",
+      "stability": 61
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "白发女人和巨型黑猫在废墟卧室",
+      "author": "@Zyrellix",
+      "url": "https://x.com/Zyrellix/status/2097594855946113177",
+      "retest": "✅ reproduced",
+      "stability": 83
+    },
+    {
+      "category": "分秒分镜 / 多镜头叙事",
+      "title_zh": "Nano Banana 加 Seedance 的高中初恋短片",
+      "author": "@Caden_Flux",
+      "url": "https://x.com/Caden_Flux/status/2089154775829074074",
+      "retest": "✅ reproduced",
+      "stability": 75
+    },
+    {
+      "category": "一镜到底 / 长镜头",
+      "title_zh": "一镜到底换装动态壁纸",
+      "author": "木马人",
+      "url": "https://x.com/cnyzgkc/status/2099029556434985065",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "一镜到底 / 长镜头",
+      "title_zh": "粉发女人漫步褪色的欧洲城市",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2102013620066636225",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "一镜到底 / 长镜头",
+      "title_zh": "第一人称灾难短片：拍还是跑",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2089578815219785888",
+      "retest": "✅ reproduced",
+      "stability": 79
+    },
+    {
+      "category": "环绕 / 俯拍等特殊机位",
+      "title_zh": "1950年代餐厅时间冻结再倒带",
+      "author": "@techhalla",
+      "url": "https://x.com/techhalla/status/2083389002552664385",
+      "retest": "⚠️ degraded",
+      "stability": 64
+    },
+    {
+      "category": "环绕 / 俯拍等特殊机位",
+      "title_zh": "粉色球场夜里踩滑板打网球",
+      "author": "@AIwithNatalia",
+      "url": "https://x.com/AIwithNatalia/status/2107056982163402833",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "环绕 / 俯拍等特殊机位",
+      "title_zh": "吊扇下波斯地毯上俯拍换装",
+      "author": "@Zoyavelle",
+      "url": "https://x.com/Zoyavelle/status/2108060187840180394",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "微距 / 延时",
+      "title_zh": "微距延时：十秒发芽",
+      "author": "@Yesandyou_",
+      "url": "https://x.com/Yesandyou_/status/2088998841395921185",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "微距 / 延时",
+      "title_zh": "玻璃罐泥里钻出小鸟",
+      "author": "@Yesandyou_",
+      "url": "https://x.com/Yesandyou_/status/2090075447195480403",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "特效 / 超现实 / 尺度反差",
+      "title_zh": "编发女剑客冲出画幅黑边",
+      "author": "@aimikoda",
+      "url": "https://x.com/aimikoda/status/2106044483863191748",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "特效 / 超现实 / 尺度反差",
+      "title_zh": "红裙女子提菜走上云端山顶的家",
+      "author": "@sophiaparkerr_",
+      "url": "https://x.com/sophiaparkerr_/status/2107096810783461509",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "特效 / 超现实 / 尺度反差",
+      "title_zh": "夕阳下穿过巨人的迷你滑板少年",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2103420922376163808",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "特效 / 超现实 / 尺度反差",
+      "title_zh": "威尼斯折叠成球体的外卖之旅",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2100541954685895043",
+      "retest": "✅ reproduced",
+      "stability": 79
+    },
+    {
+      "category": "特效 / 超现实 / 尺度反差",
+      "title_zh": "迷你女人在便利店跑酷",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2106397932304191969",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "特效 / 超现实 / 尺度反差",
+      "title_zh": "周一早晨的倒立喝水仪式",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2104544058471502330",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "双人 K-pop MV 逐镜头分镜",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2083422886686031982",
+      "retest": "⚠️ degraded",
+      "stability": 74
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "黑衣女人静立在同步人群中",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2099707375943066094",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "以假乱真的舞蹈片段",
+      "author": "@johnAGI168",
+      "url": "https://x.com/johnAGI168/status/2095025524586193105",
+      "retest": "⚠️ degraded",
+      "stability": 51
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "飞驰地铁旁的夏夜时尚女孩",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2103032789910401038",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "人群齐刷刷转头看黑衣女人",
+      "author": "@AIwithSynthia",
+      "url": "https://x.com/AIwithSynthia/status/2100067816162636164",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "淡紫发女孩跃过泳池巨浪",
+      "author": "@Zoyavelle",
+      "url": "https://x.com/Zoyavelle/status/2100089287345951159",
+      "retest": "✅ reproduced",
+      "stability": 83
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "青柠西装女子在混乱人群中淡定",
+      "author": "@john_my07",
+      "url": "https://x.com/john_my07/status/2100115896111161691",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "MV / 时尚群像",
+      "title_zh": "Y2K 糖果世界单人 K-pop MV 逐秒分镜",
+      "author": "@aiwarts",
+      "url": "https://x.com/aiwarts/status/2085736621685764503",
+      "retest": "⚠️ degraded",
+      "stability": 48
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "幼儿开门学字母（3D 动画）",
+      "author": "@Zarnab_with_Ai",
+      "url": "https://x.com/Zarnab_with_Ai/status/2104764823091490851",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "阳光厨房里的炸猪排饭（动漫）",
+      "author": "@Goodmanprotocol",
+      "url": "https://x.com/Goodmanprotocol/status/2098845134326808734",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "幼儿模仿爸爸刮胡子（3D 动画）",
+      "author": "@Zarnab_with_Ai",
+      "url": "https://x.com/Zarnab_with_Ai/status/2106560621932384657",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "奶奶带狸猫和麻雀逛早市（动画）",
+      "author": "@Just_sharon7",
+      "url": "https://x.com/Just_sharon7/status/2103503970815930610",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "兔子情侣在沙发上亲亲（3D 动画）",
+      "author": "@Zarnab_with_Ai",
+      "url": "https://x.com/Zarnab_with_Ai/status/2099683790717325390",
+      "retest": "✅ reproduced",
+      "stability": 90
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "宝宝模仿妈妈做瑜伽（3D 动画）",
+      "author": "@Zarnab_with_Ai",
+      "url": "https://x.com/Zarnab_with_Ai/status/2106347953711661482",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "3D 动画 / 儿童 / 动漫",
+      "title_zh": "小女孩在幼儿园学水果英文（3D 动画）",
+      "author": "@Zarnab_with_Ai",
+      "url": "https://x.com/Zarnab_with_Ai/status/2108381024417993043",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "带货 UGC / 角色锁定",
+      "title_zh": "自拍式护肤品 UGC 广告",
+      "author": "@abxxai",
+      "url": "https://x.com/abxxai/status/2095179656802844727",
+      "retest": null,
+      "stability": null
+    },
+    {
+      "category": "带货 UGC / 角色锁定",
+      "title_zh": "锁定角色设定的 20 岁韩国女生",
+      "author": "@AIwithkhan",
+      "url": "https://x.com/AIwithkhan/status/2095485437821464808",
+      "retest": "✅ reproduced",
+      "stability": 87
+    }
+  ]
+}
