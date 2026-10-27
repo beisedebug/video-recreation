@@ -115,6 +115,8 @@ macOS 的环境检查测试及“探测→抽帧→重剪→完整解码”离�
 - **[向阳乔木（joeseesun）](https://github.com/joeseesun/qiaomu-download)**：感谢 qiaomu-download 的视频下载与适配能力。随包保留 MIT 版权和许可证，[来源记录](vendor/qiaomu-download/ORIGIN.md)列明版本、原始文件摘要及本地修改。
 - **《舞蹈提取 Skill 包》的作者与分享者**：感谢逐秒动作、手势、表情、体态、节拍和运镜分析的方法参考。附件未提供明确的包作者署名，因此不推测其身份；原始附件不随仓库发布。
 
+感谢X好友 [AI art gallery] (https://x.com/sandmrk) 提供的舞蹈解析思路 和素材
 同时感谢 [yt-dlp](https://github.com/yt-dlp/yt-dlp)、[FFmpeg](https://ffmpeg.org/) 等基础工具，以及视频号可选后端 [ltaoo/wx_channels_download](https://github.com/ltaoo/wx_channels_download)。这些外部项目遵循各自许可证。
+
 
 各来源的使用范围与许可见 [第三方来源说明](THIRD_PARTY_NOTICES.md)。
